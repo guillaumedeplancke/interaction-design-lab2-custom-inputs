@@ -809,6 +809,32 @@ input::placeholder {
     transform: translateX(24px);
 }
 
+/*
+    Component: custom select
+    ---
+    A custom select
+*/
+
+.c-custom-select {
+    display: block;
+}
+
+.c-custom-select__input {
+    appearance: none;
+    width: 100%;
+}
+
+.c-custom-select__symbol {
+    width: 24px;
+    fill: var(--global-color-neutral-x-light);
+    
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+
+    pointer-events: none;
+}
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
