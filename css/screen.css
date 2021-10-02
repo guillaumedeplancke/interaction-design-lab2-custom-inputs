@@ -681,6 +681,62 @@ input::placeholder {
     box-shadow: none;
 }
 
+/*
+    Component: custom options
+    ---
+    Classes to put on form options
+*/
+
+.c-custom-option {
+    display: flex;
+}
+
+.c-custom-option__symbol {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: 0.15s;
+}
+
+.c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.c-custom-option__fake-input {
+    display: flex;
+    width: 16px;
+    height: 16px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--global-input-borderColor);
+    border-radius: 3px;
+    margin-right: 8px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.c-custom-option__fake-input--radio {
+    border-radius: 100%;
+}
+
+.c-custom-option__fake-input--checkbox .c-custom-option__symbol {
+    fill: var(--global-input-checkColor);
+    width: 10px;
+}
+
+.c-custom-option__fake-input--radio .c-custom-option__symbol {
+    background-color: var(--global-input-checkColor);
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+}
+
+.c-option--hidden:focus-visible + .c-custom-option .c-custom-option__fake-input,
+.c-option--hidden:active + .c-custom-option .c-custom-option__fake-input {
+    border-color: #81adf0;
+    box-shadow: 0 0 0 3px #3385ff50;
+}
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
@@ -762,7 +818,6 @@ input::placeholder {
 .u-max-width-none {
     max-width: none !important;
 }
-
 
 /*
     Utilities: align
