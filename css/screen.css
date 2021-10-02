@@ -591,6 +591,14 @@ input::placeholder {
     align-items: center;
 }
 
+.c-option-list {
+    margin-bottom: var(--global-whitespace);
+}
+
+.c-option-list__item {
+    margin-bottom: calc(var(--global-whitespace) / 2);
+}
+
 /*
     Component: Input
     ---
