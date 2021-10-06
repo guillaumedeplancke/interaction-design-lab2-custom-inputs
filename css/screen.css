@@ -823,6 +823,15 @@ input::placeholder {
     box-shadow: var(--global-input-focus-boxShadow);
 }
 
+.c-custom-toggle:active .c-custom-toggle__fake-input::after {
+    width: 28px;
+    border-radius: 16px;
+}
+
+.c-option--hidden:checked + .c-custom-toggle:active .c-custom-toggle__fake-input::after {
+    margin-left: -6px;
+}
+
 /*
     Component: custom select
     ---
