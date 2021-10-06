@@ -817,6 +817,12 @@ input::placeholder {
     transform: translateX(24px);
 }
 
+.c-option--hidden:focus-visible + .c-custom-toggle .c-custom-toggle__fake-input,
+.c-option--hidden:active + .c-custom-toggle .c-custom-toggle__fake-input {
+    border-color: var(--global-input-focus-borderColor);
+    box-shadow: var(--global-input-focus-boxShadow);
+}
+
 /*
     Component: custom select
     ---
