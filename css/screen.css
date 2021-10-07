@@ -66,6 +66,44 @@
     --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
     --global-input-checkColor: var(--global-color-alpha);
     --global-input-focus-boxShadow: 0 0 0 3px #3385ff50;
+
+    /* Page colors */
+    --global-page-color: var(--global-color-neutral-xxxx-dark);
+    --global-page-backgroundColor: var(--global-color-neutral-xxxx-light);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --global-page-color: White;
+        --global-page-backgroundColor: var(--global-color-neutral-xxxx-dark);
+    }
+
+    .c-logo {
+        --logo__path--1--fill: White;
+        --logo__path--2--fill: var(--logo__path--1--fill);
+        --logo__path--3--fill: var(--logo__path--1--fill);
+    }
+
+    .c-card {
+        --card-backgroundColor: var(--global-color-neutral-xxx-dark);
+        --card__footer--borderColor: var(--global-color-neutral-xxxx-dark);
+    }
+
+    .c-label {
+        --label-color: var(--global-color-neutral);
+    }
+
+    .c-input {
+        --input-backgroundColor: var(--global-color-neutral-xxxx-dark);
+        --input-borderColor: var(--global-color-neutral-xxxx-dark);
+        --input-boxShadow: 0 0 0 2px var(--global-color-alpha-transparent);
+        --input-textColor: White;
+    }
+
+    .c-custom-option {
+        --custom-option__fake-input--backgroundColor: var(--global-color-neutral-xxxx-dark);
+        --custom-option__fake-input--borderColor: var(--global-color-neutral-xxxx-dark);
+    }
 }
 
 /*------------------------------------*\
@@ -82,8 +120,8 @@ html {
     font-size: 16px;
     line-height: 1.5;
     font-family: 'Inter Web', Helvetica, arial, sans-serif;
-    color: var(--global-color-neutral-xxxx-dark);
-    background-color: var(--global-color-neutral-xxxx-light);
+    color: var(--global-page-color);
+    background-color: var(--global-page-backgroundColor);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -521,15 +559,15 @@ input::placeholder {
 }
 
 .c-logo__path--1 {
-    fill: var(--global-color-neutral-xxxx-dark);
+    fill: var(--logo__path--1--fill, var(--global-color-neutral-xxxx-dark));
 }
 
 .c-logo__path--2 {
-    fill: var(--global-color-alpha);
+    fill: var(--logo__path--2--fill, var(--global-color-alpha));
 }
 
 .c-logo__path--3 {
-    fill: var(--color-alpha-x-dark);
+    fill: var(--logo__path--3--fill, var(--global-color-alpha-x-dark));
 }
 
 /*
@@ -539,7 +577,7 @@ input::placeholder {
 */
 
 .c-card {
-    background-color: White;
+    background-color: var(--card-backgroundColor, White);
     margin-bottom: var(--global-whitespace);
     border-radius: var(--global-borderRadius);
     box-shadow: 0 0 0 var(--global-borderWidth) rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.075);
@@ -554,7 +592,7 @@ input::placeholder {
 
 .c-card__footer {
     text-align: center;
-    border-top: var(--global-borderWidth) solid var(--global-color-neutral-xxx-light);
+    border-top: var(--global-borderWidth) solid var(--card__footer--borderColor, var(--global-color-neutral-xxx-light));
 }
 
 .c-card__title {
@@ -626,10 +664,10 @@ input::placeholder {
     appearance: none;
     width: 100%;
 
-    border: var(--global-borderWidth) solid var(--global-input-borderColor);
+    border: var(--global-borderWidth) solid var(--input-borderColor, var(--global-input-borderColor));
     border-radius: var(--global-borderRadius);
-    color: var(--global-input-color);
-    background-color: var(--global-input-backgroundColor);
+    color: var(--input-textColor, var(--global-input-color));
+    background-color: var(--input-backgroundColor, var(--global-input-backgroundColor));
 
     font-family: inherit;
     font-size: 16px;
@@ -646,7 +684,7 @@ input::placeholder {
 .c-input:focus,
 .c-input:active {
     border-color: var(--global-input-focus-borderColor);
-    box-shadow: var(--global-input-boxShadow);
+    box-shadow: var(--input-boxShadow, var(--global-input-boxShadow));
 }
 
 /* option input for checkboxes and radio buttons */
@@ -666,7 +704,7 @@ input::placeholder {
     font-size: 14px;
     padding-bottom: var(--global-whitespace-xs);
     line-height: calc(var(--global-baseline) * 2);
-    color: var(--global-color-neutral-xx-dark);
+    color: var(--label-color, var(--global-color-neutral-xx-dark));
 }
 
 .c-label--option {
@@ -733,7 +771,8 @@ input::placeholder {
     height: 16px;
     border-style: solid;
     border-width: 1px;
-    border-color: var(--global-input-borderColor);
+    border-color: var(--custom-option__fake-input--borderColor, var(--global-input-borderColor));
+    background-color: var(--custom-option__fake-input--backgroundColor, White);
     border-radius: 3px;
     margin-right: 8px;
 
